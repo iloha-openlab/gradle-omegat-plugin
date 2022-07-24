@@ -1,7 +1,9 @@
 # Overview
 
-The OmegaT gradle plugin allow you to generate translation files from original source text
-with TMX translation memory DB.
+[![Build Status](https://dev.azure.com/miurahr/CodeBerg/_apis/build/status/CodeBerg-gradle-omegat-plugin?branchName=main)](https://dev.azure.com/miurahr/CodeBerg/_build/latest?definitionId=27&branchName=main)
+
+The OmegaT gradle plugin allow you to generate translation files from original source text with TMX translation memory DB.
+It also helps OmegaT plugin developer to make custom plugin easily. 
 
 # Getting Started 
 
@@ -87,7 +89,7 @@ for groovy DSL
 ```groovy
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
-    version = "5.4.4" // (optional) Build against OmegaT version;
+    version = "5.7.1" // (optional) Build against OmegaT version;
                       // available versions(as in Jan. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.0
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
@@ -98,7 +100,7 @@ for kotlin DSL
 ```kotlin
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
-    version = "5.4.4" // (optional) Build against OmegaT version;
+    version = "5.7.1" // (optional) Build against OmegaT version;
                       // available versions(as in Jan. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.0
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
