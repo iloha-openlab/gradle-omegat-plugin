@@ -1,6 +1,7 @@
 package org.omegat.gradle.task
 
 import org.gradle.api.Project
+import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.jvm.tasks.Jar
 import org.omegat.gradle.config.DefaultModule
 import org.omegat.gradle.config.PluginExtension
@@ -43,9 +44,11 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
                         }
                     }
                 )
+                jarTask.duplicatesStrategy = DuplicatesStrategy.WARN
             }
             jarTask.doLast { task ->
                 project.copy {
+                    it.duplicatesStrategy = DuplicatesStrategy.WARN
                     it.from(task.outputs.files)
                     it.into(File(project.buildDir, "omegat/plugins/"))
                 }
