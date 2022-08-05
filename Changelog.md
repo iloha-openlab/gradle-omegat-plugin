@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.5.8] - 2022-08-05
+
+### Fixed
+- Set DuplicatesStrategy to WARN that does not stop build
+  but print warning when trying to copy same path in jar file.
+
+### Changed
+- Migrate forge site to codeberg.org
+- Migrate CI/CD to azure pipelines
+- Bump versions
+  - gradle plugin plugin-publish@1.0.0
+  - kotlin(jvm)@1.6.21
+
 ## [1.5.7] - 2021-01-09
 
 ### Changed
@@ -129,7 +142,8 @@ All notable changes to this project will be documented in this file.
 ## [0.9.1] - 2016-9-25
 
 
-[Unreleased]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.7...HEAD
+[Unreleased]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.8...HEAD
+[1.5.8]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.7...v1.5.8
 [1.5.7]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.3...v1.5.7
 [1.5.3]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.0...v1.5.3
 [1.5.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.4.2...v1.5.0
