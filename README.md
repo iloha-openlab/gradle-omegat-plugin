@@ -24,14 +24,14 @@ To apply the plugin, please add one of the following snippets to your `build.gra
 
 ```groovy
 plugins {
-    id 'org.omegat.gradle' version '1.5.7'
+    id 'org.omegat.gradle' version '1.5.8'
 }
 ```
 or `build.gradle.kts` in Kotlin;
 
 ```kotlin
 plugins {
-    id("org.omegat.gradle") version "1.5.7"
+    id("org.omegat.gradle") version "1.5.8"
 }
 ```
 
@@ -69,13 +69,13 @@ To apply the plugin, please add one of the following snippets to your `build.gra
 
 ```groovy
 plugins {
-    id 'org.omegat.gradle' version '1.5.7'
+    id 'org.omegat.gradle' version '1.5.8'
 }
 ```
 or in kotlin
 ```kotlin
 plugins {
-    id("org.omegat.gralde") version "1.5.7"
+    id("org.omegat.gralde") version "1.5.8"
 }
 ```
 
@@ -90,7 +90,7 @@ for groovy DSL
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
     version = "5.7.1" // (optional) Build against OmegaT version;
-                      // available versions(as in Jan. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.0
+                      // available versions(as in Aug. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.1
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
 ```
@@ -101,7 +101,7 @@ for kotlin DSL
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
     version = "5.7.1" // (optional) Build against OmegaT version;
-                      // available versions(as in Jan. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.0
+                      // available versions(as in Aug. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.1
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
 ```
@@ -172,7 +172,7 @@ Here is a table how properties becomes manifest record;
 - Built environment and date records are automatically added to manifest.
 - Class name is configured by extension `omegat.pluginClass` in `build.gradle`.
 
-## Imcompatible change
+## Incompatible change
 
 An extension `omegat.pluginName` is deprecated and will be removed in future verion.
 You should set `plugin.name` property for the purpose.
