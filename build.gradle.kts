@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "org.omegat"
-version = "1.5.8"
+version = "1.5.9"
 
 tasks.compileJava {
     options.release.set(8)

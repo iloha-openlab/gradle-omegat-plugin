@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [1.5.8] - 2022-08-05
+## [1.5.9] - 2022-08-06
 
 ### Fixed
 - Set DuplicatesStrategy to WARN that does not stop build
@@ -11,7 +11,9 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Migrate forge site to codeberg.org
+  - Update plugin metadata
 - Migrate CI/CD to azure pipelines
+- Specify gradleApi() as compileOnly
 - Bump versions
   - gradle plugin plugin-publish@1.0.0
   - kotlin(jvm)@1.6.21
@@ -142,8 +144,8 @@ All notable changes to this project will be documented in this file.
 ## [0.9.1] - 2016-9-25
 
 
-[Unreleased]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.8...HEAD
-[1.5.8]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.7...v1.5.8
+[Unreleased]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.9...HEAD
+[1.5.9]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.7...v1.5.9
 [1.5.7]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.3...v1.5.7
 [1.5.3]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.0...v1.5.3
 [1.5.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.4.2...v1.5.0
