@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     kotlin("jvm") version "1.6.21"
     id("java-gradle-plugin")  // for plugin authoring
@@ -12,13 +14,17 @@ tasks.compileJava {
     options.release.set(8)
 }
 
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation(gradleApi())
+    compileOnly(gradleApi())
 }
 
 pluginBundle {
