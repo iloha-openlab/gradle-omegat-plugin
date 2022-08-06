@@ -14,10 +14,23 @@ open class PluginExtension(project: Project) {
 
     val manifest: OmegatManifest = OmegatManifest(project)
 
+  /**
+   * When packing the dependencies of the `packIntoJar` configuration into the distribution *.jar,
+   * this closure is applied to the file tree. If you want to exclude certain files in your dependencies into
+   * your release, you can modify this.
+   * By default, the `/META-INF/` directory of dependencies is discarded.
+   *
+   * **Default value:** `{ it.exclude("META-INF/**/*") }`
+   * @see org.gradle.api.file.FileTree.matching(groovy.lang.Closure)
+   * @see PatternFilterable
+   */
+    var packIntoJarFileFilter: (PatternFilterable) -> PatternFilterable = {
+        it.exclude("META-INF/**/*", "module-info.class")
+    }
+
     /**
      * Set the [packIntoJarFileFilter] with a Groovy [Closure]
      */
-    var packIntoJarFileFilter: (PatternFilterable) -> PatternFilterable = { it.exclude("META-INF/**/*") }
     fun packIntoJarFileFilter(closure: Closure<PatternFilterable>) {
         packIntoJarFileFilter = { closure.call(it) }
     }
