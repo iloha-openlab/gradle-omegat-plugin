@@ -28,8 +28,8 @@ dependencies {
 }
 
 pluginBundle {
-    vcsUrl = "https://github.com/miurahr/gradle-omegat-plugin.git"
-    website = "https://github.com/miurahr/gradle-omegat-plugin"
+    vcsUrl = "https://codeberg.org/miurahr/gradle-omegat-plugin.git"
+    website = "https://codeberg.org/miurahr/gradle-omegat-plugin"
     tags = listOf("OmegaT", "translation", "plugin development")
 }
 
