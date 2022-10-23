@@ -5,13 +5,12 @@ import org.gradle.api.tasks.TaskAction
 open class TranslateTask : BaseTask() {
     @TaskAction
     override fun exec() {
+        if (projectDir == null) { // set default project root
+            projectDir = project.rootDir.path
+        }
         argList.apply {
-            if (projectDir != null) {
-                add(projectDir!!)
-            } else {
-                add(project.rootDir.path)
-            }
             add("--mode=console-translate")
+            add(projectDir!!)
         }
         super.exec()
     }
