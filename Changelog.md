@@ -3,6 +3,9 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Changed
+- Use project root  from `project.rootDir.path`
+
 ## [1.5.9] - 2022-08-06
 
 ### Fixed

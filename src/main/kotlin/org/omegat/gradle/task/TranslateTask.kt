@@ -9,7 +9,7 @@ open class TranslateTask : BaseTask() {
             if (projectDir != null) {
                 add(projectDir!!)
             } else {
-                add(project.rootDir.toString())
+                add(project.rootDir.path)
             }
             add("--mode=console-translate")
         }
