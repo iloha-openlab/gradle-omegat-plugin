@@ -144,20 +144,21 @@ All notable changes to this project will be documented in this file.
 ## [0.9.1] - 2016-9-25
 
 
-[Unreleased]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.9...HEAD
-[1.5.9]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.7...v1.5.9
-[1.5.7]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.3...v1.5.7
-[1.5.3]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.5.0...v1.5.3
-[1.5.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.4.2...v1.5.0
-[1.4.2]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.4.1...v1.4.2
-[1.4.1]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.4.0...v1.4.1
-[1.4.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.3.2...v1.4.0
-[1.3.2]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.3.1...v1.3.2
-[1.3.1]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.3.0...v1.3.1
-[1.3.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.2.0...v1.3.0
-[1.2.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.1.1...v1.2.0
-[1.1.1]: https://github.com/miurahr/omegat-textra-plugin/compare/v1.0.0...v1.1.1
-[1.0.0]: https://github.com/miurahr/omegat-textra-plugin/compare/v0.9.5...v1.0.0
-[0.9.5]: https://github.com/miurahr/omegat-textra-plugin/compare/v0.9.4...v0.9.5
-[0.9.4]: https://github.com/miurahr/omegat-textra-plugin/compare/v0.9.1...v0.9.4
-[0.9.1]: https://github.com/miurahr/omegat-textra-plugin/compare/v0.9.0...v0.9.1
+[Unreleased]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.9...HEAD
+[1.5.9]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.8...v1.5.9
+[1.5.8]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.7...v1.5.8
+[1.5.7]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.3...v1.5.7
+[1.5.3]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.0...v1.5.3
+[1.5.0]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.4.2...v1.5.0
+[1.4.2]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.4.1...v1.4.2
+[1.4.1]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.4.0...v1.4.1
+[1.4.0]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.3.2...v1.4.0
+[1.3.2]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.3.1...v1.3.2
+[1.3.1]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.3.0...v1.3.1
+[1.3.0]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.2.0...v1.3.0
+[1.2.0]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.1.1...v1.2.0
+[1.1.1]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.0.0...v1.1.1
+[1.0.0]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v0.9.5...v1.0.0
+[0.9.5]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v0.9.4...v0.9.5
+[0.9.4]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v0.9.1...v0.9.4
+[0.9.1]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v0.9.0...v0.9.1
