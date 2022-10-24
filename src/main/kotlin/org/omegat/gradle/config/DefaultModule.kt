@@ -12,9 +12,11 @@ class DefaultModule(project: Project) {
         project.repositories.mavenCentral()
     }
 
-    fun getDependencies(version: String?): List<String> {
-        val omtVersion = version ?: props.getProperty("omegatVersion").toString()
+    fun getDependencies(extension: PluginExtension): List<String> {
+        val omtGroup = extension.omegatGroup ?: "org.omegat"
+        val omtProd = extension.omegatProduct ?: "omegat"
+        val omtVersion = extension.version ?: props.getProperty("omegatVersion").toString()
         val vldockingVersion = props.getProperty("vldockingVersion").toString()
-        return listOf("org.omegat:omegat:${omtVersion}", "org.omegat:vldocking:${vldockingVersion}")
+        return listOf("${omtGroup}:${omtProd}:${omtVersion}", "org.omegat:vldocking:${vldockingVersion}")
     }
 }

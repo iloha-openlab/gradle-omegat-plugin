@@ -68,7 +68,7 @@ fun Project.setupOmegatConfig(extension: PluginExtension) {
         create("omegat")
     }
     afterEvaluate {
-        val deps = DefaultModule(project).getDependencies(extension.version)
+        val deps = DefaultModule(project).getDependencies(extension)
         project.configurations.run {
             getByName("omegat").apply {
                 for (dep in deps) {

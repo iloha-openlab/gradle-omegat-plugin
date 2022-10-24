@@ -24,14 +24,14 @@ To apply the plugin, please add one of the following snippets to your `build.gra
 
 ```groovy
 plugins {
-    id 'org.omegat.gradle' version '1.5.8'
+    id 'org.omegat.gradle' version '1.5.9'
 }
 ```
 or `build.gradle.kts` in Kotlin;
 
 ```kotlin
 plugins {
-    id("org.omegat.gradle") version "1.5.8"
+    id("org.omegat.gradle") version "1.5.9"
 }
 ```
 
@@ -51,7 +51,23 @@ omegat {
 }
 ```
 
-If not specified projectDir, the OmegaT plugin assumes project root is an omegat project.
+If not specified projectDir, the OmegaT plugin assumes a gradle project root is an omegat project.
+
+#### Advanced
+
+When you want to custom omegat release other than genuine distribution for specific purpose,
+you can specify it using custom properties.
+
+```groovy
+omegat {
+    projectDir "path/to/omegat/team/project"
+    version = '5.8.0-SNAPSHOT'  // OmegaT version
+    omegatGroup = "custom.group"  // default: org.omegat
+    omegatProduct = "customProduct"  // default: omegat
+}
+```
+
+In this example, you can specify "custom.group:customProduct:5.8.0-SNAPSHOT" for dependency.
 
 ###  Call translation
 
@@ -69,13 +85,13 @@ To apply the plugin, please add one of the following snippets to your `build.gra
 
 ```groovy
 plugins {
-    id 'org.omegat.gradle' version '1.5.8'
+    id 'org.omegat.gradle' version '1.5.9'
 }
 ```
 or in kotlin
 ```kotlin
 plugins {
-    id("org.omegat.gralde") version "1.5.8"
+    id("org.omegat.gralde") version "1.5.9"
 }
 ```
 

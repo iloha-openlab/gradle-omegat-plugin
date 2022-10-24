@@ -13,6 +13,9 @@ open class PluginExtension(project: Project) {
 
     val manifest: OmegatManifest = OmegatManifest(project)
 
+    var omegatGroup: String? = null
+    var omegatProduct: String? = null
+
   /**
    * When packing the dependencies of the `packIntoJar` configuration into the distribution *.jar,
    * this closure is applied to the file tree. If you want to exclude certain files in your dependencies into
