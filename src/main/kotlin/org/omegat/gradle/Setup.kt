@@ -12,6 +12,13 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
     tasks.register("translate", TranslateTask::class.java) { task ->
         task.projectDir = extension.projectDir.toString()
     }
+    if (extension.version == null
+        || extension.version!!.startsWith("5.8.")
+        || extension.version!!.startsWith("6.")) {
+        tasks.register("translateStats", StatsTask::class.java) { task ->
+            task.projectDir = extension.projectDir.toString()
+        }
+    }
     tasks.register("runOmegaT", RunTask::class.java) { task ->
         task.projectDir = extension.projectDir.toString()
     }

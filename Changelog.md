@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - Support custom group/product for omegat dependency
+- Add translateStats task
 
 ### Changed
 - Use project root  from `project.rootDir.path`
