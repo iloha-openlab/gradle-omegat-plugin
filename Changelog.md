@@ -6,8 +6,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Support custom group/product for omegat dependency
 - Add translateStats task
+- Support "--no-team" omde for run tasks when project property "no-team" is "true"
 
 ### Changed
+- Change default dependency OmegaT version to v 5.7.1.
+- Change runOmegaT/debugOmegaT to install plugin jar file that name is without version number.
+  - Override jar file when change commit on multiple execution.
+  - This avoid a case OmegaT load a jar file of previous versions.
 - Use project root  from `project.rootDir.path`
 
 ## [1.5.9] - 2022-08-06
