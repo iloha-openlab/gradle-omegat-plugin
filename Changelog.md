@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.5.10] - 2022-11-28
+
+* New! (preview feature) translateStats task with OmegaT 5.8/6.0.
+
 ### Added
 - Support custom group/product for omegat dependency
 - Add translateStats task
@@ -156,7 +160,8 @@ All notable changes to this project will be documented in this file.
 ## [0.9.1] - 2016-9-25
 
 
-[Unreleased]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.9...HEAD
+[Unreleased]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.10...HEAD
+[1.5.10]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.8...v1.5.10
 [1.5.9]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.8...v1.5.9
 [1.5.8]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.7...v1.5.8
 [1.5.7]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.3...v1.5.7
