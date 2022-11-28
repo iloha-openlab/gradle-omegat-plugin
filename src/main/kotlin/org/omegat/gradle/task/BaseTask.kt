@@ -17,14 +17,22 @@ open class BaseTask : JavaExec() {
     init {
         group = "org.omegat"
         mainClass.set("org.omegat.Main")
-        if (hasProperty("user.language")) {
-            argList.add("-Duser.language=" + property("user.language"))
-            if (hasProperty("user.country")) {
-                argList.add("-Duser.country=" + property("user.country"))
+        val lang = systemProperties["user.language"]?:""
+        val country = systemProperties["user.country"]?:""
+        val proxy = systemProperties["http.proxyHost"]?:""
+        val prop = project.properties["no-team"]?:"false"
+
+        if (!"".equals(lang)) {
+            argList.add("-Duser.language=" + lang)
+            if (!"".equals(country)) {
+                argList.add("-Duser.country=" + country)
             }
         }
-        if (hasProperty("http.proxyHost")) {
-            argList.add("-Dhttp.proxyHost=" + property("http.proxyHost"))
+        if (!"".equals(proxy)) {
+            argList.add("-Dhttp.proxyHost=" + proxy)
+        }
+        if ("true".equals(prop)) {
+            argList.add("--no-team")
         }
     }
 
