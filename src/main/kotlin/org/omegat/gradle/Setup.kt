@@ -58,11 +58,12 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
                 jarTask.duplicatesStrategy = DuplicatesStrategy.WARN
             }
             jarTask.doLast { task ->
+                val basename = jarTask.archiveBaseName.getOrElse(project.name)
+                val ext = jarTask.archiveExtension.getOrElse("jar")
                 project.copy {
-                    val pluginJarName = jarTask.archiveBaseName.toString() + jarTask.archiveExtension
                     it.duplicatesStrategy = DuplicatesStrategy.WARN
                     it.from(task.outputs.files)
-                    it.rename{ _ -> pluginJarName }
+                    it.rename{ _ -> "${basename}.${ext}" }
                     it.into(File(project.buildDir, "omegat/plugins/"))
                 }
             }
