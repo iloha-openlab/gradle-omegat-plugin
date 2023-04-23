@@ -3,6 +3,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.6.0] - 2023-04-23
+
+* Change default dependency OmegaT version to v5.8.0
+* When set "team" option to false, "translate" task run with "--no-team"
+
 ## [1.5.11] - 2022-11-28
 
 * New! (preview feature) translateStats task with OmegaT 5.8/6.0.
@@ -13,13 +18,13 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Support custom group/product for omegat dependency
 - Add translateStats task
-- Support "--no-team" omde for run tasks when project property "no-team" is "true"
+- Support "--no-team" mode for run tasks when project property "no-team" is "true"
 
 ### Changed
 - Change default dependency OmegaT version to v 5.7.1.
 - Change runOmegaT/debugOmegaT to install plugin jar file that name is without version number.
   - Override jar file when change commit on multiple execution.
-  - This avoid a case OmegaT load a jar file of previous versions.
+  - This avoids a case OmegaT load a jar file of previous versions.
 - Use project root  from `project.rootDir.path`
 
 ## [1.5.9] - 2022-08-06
@@ -163,7 +168,8 @@ All notable changes to this project will be documented in this file.
 ## [0.9.1] - 2016-9-25
 
 
-[Unreleased]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.11...HEAD
+[Unreleased]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.6.0...HEAD
+[1.6.0]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.11...v1.6.0
 [1.5.11]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.9...v1.5.11
 [1.5.9]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.8...v1.5.9
 [1.5.8]: https://codeberg.org/miurahr/gradle-omegat-plugin/compare/v1.5.7...v1.5.8

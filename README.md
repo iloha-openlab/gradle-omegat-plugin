@@ -7,7 +7,7 @@ It also helps OmegaT plugin developers to make custom plugin easily.
 
 # Getting Started 
 
-There are two types of tasks of the plugin.
+There are two task types in the plugin.
 
 1. Tasks on translation project
 
@@ -24,14 +24,14 @@ To apply the plugin, please add one of the following snippets to your `build.gra
 
 ```groovy
 plugins {
-    id 'org.omegat.gradle' version '1.5.9'
+    id 'org.omegat.gradle' version '1.6.0'
 }
 ```
 or `build.gradle.kts` in Kotlin;
 
 ```kotlin
 plugins {
-    id("org.omegat.gradle") version "1.5.9"
+    id("org.omegat.gradle") version "1.6.0"
 }
 ```
 
@@ -75,7 +75,7 @@ In this example, you can specify "custom.group:customProduct:5.8.0-SNAPSHOT" for
 $ ./gradlew translate
 ```
 
-This will generate translation result in OmegaT target directory.
+This will generate a translation result in OmegaT target directory.
 
 
 ### Configure translate task
@@ -95,28 +95,29 @@ To apply the plugin, please add one of the following snippets to your `build.gra
 
 ```groovy
 plugins {
-    id 'org.omegat.gradle' version '1.5.9'
+    id 'org.omegat.gradle' version '1.6.0'
 }
 ```
 or in kotlin
 ```kotlin
 plugins {
-    id("org.omegat.gralde") version "1.5.9"
+    id("org.omegat.gralde") version "1.6.0"
 }
 ```
 
 ### Step 2: `omegat` configuration closure to your `build.gradle` file
 
 When you want to use the omegat gradle plugin for omegat plugin development, there are several
-mandantory configurations. 
+mandatory configurations. 
 
 for groovy DSL
 
 ```groovy
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
-    version = "5.7.1" // (optional) Build against OmegaT version;
-                      // available versions(as in Aug. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.1
+    version = "5.8.0" // (optional) Build against OmegaT version;
+                      // available versions(as in Apr. 2023): 5.4.4, 5.5.0, 5.6.0, 5.7.1, 5.8.0
+                      // Will soon arrive: 5.8.1, 6.0.0, 6.0.1
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
 ```
@@ -178,7 +179,7 @@ plugin.name=Plugin Name
 plugin.author=Plugin developer name
 plugin.category=machinetranslator
 plugin.description=A plugin to look up online dictionary
-plugin.link=https://github.com/miurahr/omegat-onlinedictionary
+plugin.link=https://codeberg.org/miurahr/omegat-onlinedictionary
 plugin.license=GNU General Public License version 3
 ```
 
