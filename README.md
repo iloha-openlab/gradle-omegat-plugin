@@ -2,8 +2,8 @@
 
 [![Build Status](https://dev.azure.com/miurahr/CodeBerg/_apis/build/status/CodeBerg-gradle-omegat-plugin?branchName=main)](https://dev.azure.com/miurahr/CodeBerg/_build/latest?definitionId=27&branchName=main)
 
-The OmegaT gradle plugin allow you to generate translation files from original source text with TMX translation memory DB.
-It also helps OmegaT plugin developer to make custom plugin easily. 
+The OmegaT gradle plugin allows you to generate translation files from an original source text with TMX translation memory DB.
+It also helps OmegaT plugin developers to make custom plugin easily. 
 
 # Getting Started 
 
@@ -69,13 +69,23 @@ omegat {
 
 In this example, you can specify "custom.group:customProduct:5.8.0-SNAPSHOT" for dependency.
 
-###  Call translation
+###  Call translate task
 
 ```bash
 $ ./gradlew translate
 ```
 
 This will generate translation result in OmegaT target directory.
+
+
+### Configure translate task
+
+```groovy
+tasks.translate {
+    team = "true"
+}
+```
+
 
 ## Development of a custom OmegaT plugin
 
@@ -116,25 +126,26 @@ for kotlin DSL
 ```kotlin
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
-    version = "5.7.1" // (optional) Build against OmegaT version;
-                      // available versions(as in Aug. 2022): 5.4.4, 5.5.0, 5.6.0, 5.7.1
+    version = "5.8.0" // (optional) Build against OmegaT version;
+                      // available versions(as in Apr. 2023): 5.4.4, 5.5.0, 5.6.0, 5.7.1, 5.8.0
+                      // Will soon arrive: 5.8.1, 6.0.0, 6.0.1
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
 ```
 
-The plugin automatically configure gradle project to depend on specified version of OmegaT.
+The plugin automatically configures a gradle project to depend on a specified version of OmegaT.
 When there is an option `debugPort`, a task named `debugOmegaT` is created which run OmegaT
 with a jvm debugger port.
 
-When launching `runOmegaT` or `debugOmegaT`, project will build jar file and place
+When launching `runOmegaT` or `debugOmegaT`, the project will build jar file and place
 plugin into temporal configuration folder `build/omegat/plugins` then launch OmegaT
 and open OmegaT project at configured as `omegat.projectDir`
 
 ### Step 3. Configure dependencies
 
 You can put dependencies with packIntoJar configuration, dependencies are bundled with plugin as Fat-Jar.
-Libraries other than packIntoJar such as implementation, compile etc. are used to compile but not bundled.
-A following example illustrate how to use, and jackson is going to be bundled, and commons-io library is not.
+Libraries other than packIntoJar such as implementation, compile, etc. are used to compile but not bundled.
+The following example illustrates how to use, and jackson is going to be bundled, and a commons-io library is not.
 It is because commons-io is a dependency of OmegaT, so we can use it without bundled.
 
 ```groovy
@@ -158,8 +169,8 @@ dependencies {
 
 ### Step 4. Setup plugin properties
 
-There are several plugin information to be managed on OmegaT preference.
-You can set it on `gradle.properties` file, and the plugin generate proper manifest records.
+There is some plugin information to be managed on OmegaT preference.
+You can set it on `gradle.properties` file, and the plugin generates proper manifest records.
 Here is an example.
 
 ```properties
@@ -171,7 +182,7 @@ plugin.link=https://github.com/miurahr/omegat-onlinedictionary
 plugin.license=GNU General Public License version 3
 ```
 
-Here is a table how properties becomes manifest record;
+Here is a table how properties become manifest record;
 
 |                    | plugin manifest    | gradle.properties    | standard property   | 
 |--------------------|--------------------|----------------------|---------------------|
