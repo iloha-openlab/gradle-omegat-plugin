@@ -1,5 +1,6 @@
 package org.omegat.gradle.task
 
+import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.JavaExec
@@ -12,7 +13,10 @@ open class BaseTask : JavaExec() {
     protected val argList = mutableListOf<String>()
 
     @Input
-    var projectDir: String? = null
+    var projectDir: DirectoryProperty? = null
+
+    @Input
+    var configDir: DirectoryProperty? = null
 
     init {
         group = "org.omegat"
@@ -20,7 +24,6 @@ open class BaseTask : JavaExec() {
         val lang = systemProperties["user.language"]?:""
         val country = systemProperties["user.country"]?:""
         val proxy = systemProperties["http.proxyHost"]?:""
-        val prop = project.properties["no-team"]?:"false"
 
         if (!"".equals(lang)) {
             argList.add("-Duser.language=" + lang)
@@ -30,9 +33,6 @@ open class BaseTask : JavaExec() {
         }
         if (!"".equals(proxy)) {
             argList.add("-Dhttp.proxyHost=" + proxy)
-        }
-        if ("true".equals(prop)) {
-            argList.add("--no-team")
         }
     }
 
