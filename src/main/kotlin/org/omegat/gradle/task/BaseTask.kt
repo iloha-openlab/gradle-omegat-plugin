@@ -20,7 +20,6 @@ open class BaseTask : JavaExec() {
         val lang = systemProperties["user.language"]?:""
         val country = systemProperties["user.country"]?:""
         val proxy = systemProperties["http.proxyHost"]?:""
-        val prop = project.properties["no-team"]?:"false"
 
         if (!"".equals(lang)) {
             argList.add("-Duser.language=" + lang)
@@ -30,9 +29,6 @@ open class BaseTask : JavaExec() {
         }
         if (!"".equals(proxy)) {
             argList.add("-Dhttp.proxyHost=" + proxy)
-        }
-        if ("true".equals(prop)) {
-            argList.add("--no-team")
         }
     }
 
