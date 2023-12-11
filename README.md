@@ -83,6 +83,7 @@ This will generate a translation result in OmegaT target directory.
 ```groovy
 tasks.translate {
     team = "true"
+    configDir = "/home/example/omegat"
 }
 ```
 
@@ -101,7 +102,7 @@ plugins {
 or in kotlin
 ```kotlin
 plugins {
-    id("org.omegat.gralde") version "1.6.0"
+    id("org.omegat.gradle") version "1.6.0"
 }
 ```
 
@@ -116,8 +117,7 @@ for groovy DSL
 omegat {
     pluginClass = "your.plugin.package.and.className" // mandatory for plugin development
     version = "5.8.0" // (optional) Build against OmegaT version;
-                      // available versions(as in Apr. 2023): 5.4.4, 5.5.0, 5.6.0, 5.7.1, 5.8.0
-                      // Will soon arrive: 5.8.1, 6.0.0, 6.0.1
+                      // available versions(as in Apr. 2023): 5.4.4, 5.5.0, 5.6.0, 5.7.1, 5.8.0, 6.0.0
     debugPort = 5566 // (optional) when you use a java debugger, no need when use IDEs
 }
 ```
