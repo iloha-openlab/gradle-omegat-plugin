@@ -1,5 +1,6 @@
 package org.omegat.gradle.task
 
+import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.tasks.CacheableTask
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.JavaExec
@@ -12,7 +13,10 @@ open class BaseTask : JavaExec() {
     protected val argList = mutableListOf<String>()
 
     @Input
-    var projectDir: String? = null
+    var projectDir: DirectoryProperty? = null
+
+    @Input
+    var configDir: DirectoryProperty? = null
 
     init {
         group = "org.omegat"
