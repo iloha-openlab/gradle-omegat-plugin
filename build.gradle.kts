@@ -1,21 +1,35 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import java.io.FileInputStream
+import java.util.Properties
 
 plugins {
     signing
     kotlin("jvm") version "1.7.10"
     id("java-gradle-plugin")  // for plugin authoring
     id ("maven-publish")  // for metadata
-    id("com.gradle.plugin-publish") version "1.1.0"  // for publish to plugin portal
-    id("com.palantir.git-version") version "0.13.0"
+    id("com.gradle.plugin-publish") version "1.1.0"  // to publish to plugin portal
+    id("com.palantir.git-version") version "0.13.0" apply false
 }
 
-val versionDetails: groovy.lang.Closure<com.palantir.gradle.gitversion.VersionDetails> by extra
-val details = versionDetails()
-val baseVersion = details.lastTag.substring(1)
-if (details.isCleanTag) {  // release version
-    version = baseVersion
-} else {  // snapshot version
-    version = baseVersion + "-" + details.commitDistance + "-" + details.gitHash + "-SNAPSHOT"
+val dotgit = project.file(".git")
+if (dotgit.exists()) {
+    apply(plugin = "com.palantir.git-version")
+    val versionDetails: groovy.lang.Closure<com.palantir.gradle.gitversion.VersionDetails> by extra
+    val details = versionDetails()
+    val baseVersion = details.lastTag.substring(1)
+    version = when {
+        details.isCleanTag -> baseVersion
+        else -> baseVersion + "-" + details.commitDistance + "-" + details.gitHash + "-SNAPSHOT"
+    }
+} else {
+    val gitArchival = project.file(".git-archival.properties")
+    val props = Properties()
+    props.load(FileInputStream(gitArchival))
+    val versionDescribe = props.getProperty("describe")
+    val regex = "^v\\d+\\.\\d+\\.\\d+$".toRegex()
+    version = when {
+        regex.matches(versionDescribe) -> versionDescribe.substring(1)
+        else -> versionDescribe.substring(1) + "-SNAPSHOT"
+    }
 }
 
 group = "org.omegat"
@@ -67,7 +81,7 @@ publishing {
 
 val signKey = listOf("signingKey", "signing.keyId", "signing.gnupg.keyName").find {project.hasProperty(it)}
 tasks.withType<Sign> {
-    onlyIf { details.isCleanTag && (signKey != null) }
+    onlyIf { signKey != null && !project.version.toString().endsWith("-SNAPSHOT") }
 }
 
 signing {
