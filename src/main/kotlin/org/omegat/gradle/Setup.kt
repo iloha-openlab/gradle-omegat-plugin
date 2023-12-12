@@ -5,25 +5,24 @@ import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.jvm.tasks.Jar
 import org.omegat.gradle.config.DefaultModule
 import org.omegat.gradle.config.PluginExtension
-import java.io.File
 
 
 fun Project.setupOmegatTasks(extension: PluginExtension) {
     tasks.register("translate", TranslateTask::class.java) { task ->
-        task.projectDir = extension.projectDir
+        task.projectDir = extension.projectDir.toString()
     }
     if (extension.version == null
         || extension.version!!.startsWith("5.8.")
         || extension.version!!.startsWith("6.")) {
         tasks.register("translateStats", StatsTask::class.java) { task ->
-            task.projectDir = extension.projectDir
+            task.projectDir = extension.projectDir.toString()
         }
     }
     tasks.register("runOmegaT", RunTask::class.java) { task ->
-        task.projectDir = extension.projectDir
+        task.projectDir = extension.projectDir.toString()
     }
     tasks.register("debugOmegaT", DebugTask::class.java) { task ->
-        task.projectDir = extension.projectDir
+        task.projectDir = extension.projectDir.toString()
     }
     afterEvaluate {
         if (extension.pluginClass != null) {
@@ -64,7 +63,7 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
                     it.duplicatesStrategy = DuplicatesStrategy.WARN
                     it.from(task.outputs.files)
                     it.rename{ _ -> "${basename}.${ext}" }
-                    it.into(File(project.buildDir, "omegat/plugins/"))
+                    it.into(project.layout.buildDirectory.file("omegat/plugins/").get())
                 }
             }
         }
