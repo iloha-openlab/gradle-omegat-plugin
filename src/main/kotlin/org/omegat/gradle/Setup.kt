@@ -8,39 +8,37 @@ import org.omegat.gradle.config.PluginExtension
 
 
 fun Project.setupOmegatTasks(extension: PluginExtension) {
-    tasks.register("translate", TranslateTask::class.java) { task ->
-        task.projectDir = extension.projectDir.toString()
-    }
-    if (extension.version == null
-        || extension.version!!.startsWith("5.8.")
-        || extension.version!!.startsWith("6.")) {
-        tasks.register("translateStats", StatsTask::class.java) { task ->
-            task.projectDir = extension.projectDir.toString()
+    if (extension.pluginClass.isPresent) {
+        tasks.register("runOmegaT", RunTask::class.java)
+        tasks.register("debugOmegaT", DebugTask::class.java) {
+            extension.debugPort.convention(8457)
         }
     }
-    tasks.register("runOmegaT", RunTask::class.java) { task ->
-        task.projectDir = extension.projectDir.toString()
+    tasks.register("translate", TranslateTask::class.java)
+    if (extension.version.get().startsWith("5.8.")
+        || extension.version.get().startsWith("6.")
+    ) {
+        tasks.register("translateStats", StatsTask::class.java)
     }
-    tasks.register("debugOmegaT", DebugTask::class.java) { task ->
-        task.projectDir = extension.projectDir.toString()
-    }
+
     afterEvaluate {
-        if (extension.pluginClass != null) {
+        if (extension.pluginClass.isPresent) {
             val jarTask = project.tasks.withType(Jar::class.java).getByName("jar")
             tasks.withType(RunTask::class.java).getByName("runOmegaT").apply {
                 dependsOn(jarTask)
             }
             tasks.withType(DebugTask::class.java).getByName("debugOmegaT").apply {
-                debugPort = extension.debugPort
+                debugPort = extension.debugPort.get()
                 dependsOn(jarTask)
             }
             jarTask.outputs.upToDateWhen { false }
             jarTask.doFirst { task ->
-                val pluginName = project.findProperty("plugin.name")
-                if (extension.pluginClass != null && pluginName != null) {
-                    val className: String = extension.pluginClass.toString()
+                if (project.hasProperty("plugin.name")) {
                     jarTask.manifest.attributes(
-                        extension.manifest.createOmegatPluginJarManifest(className, pluginName.toString())
+                        extension.manifest.createOmegatPluginJarManifest(
+                            extension.pluginClass.get().toString(),
+                            project.findProperty("plugin.name").toString()
+                        )
                     )
                 }
                 jarTask.from(
@@ -62,7 +60,7 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
                 project.copy {
                     it.duplicatesStrategy = DuplicatesStrategy.WARN
                     it.from(task.outputs.files)
-                    it.rename{ _ -> "${basename}.${ext}" }
+                    it.rename { _ -> "${basename}.${ext}" }
                     it.into(project.layout.buildDirectory.file("omegat/plugins/").get())
                 }
             }
@@ -85,7 +83,7 @@ fun Project.setupOmegatConfig(extension: PluginExtension) {
                 }
             }
         }
-        if (extension.pluginClass != null) {
+        if (extension.pluginClass.isPresent) {
             project.configurations.run {
                 getByName("implementation").apply {
                     extendsFrom(getByName("packIntoJar"))

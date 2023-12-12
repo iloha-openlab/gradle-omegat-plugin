@@ -2,20 +2,20 @@ package org.omegat.gradle.config
 
 import groovy.lang.Closure
 import org.gradle.api.Project
-import org.gradle.api.file.DirectoryProperty
+import org.gradle.api.model.ObjectFactory
+import org.gradle.api.provider.Property
 import org.gradle.api.tasks.util.PatternFilterable
 
 
 open class PluginExtension(project: Project) {
-    var projectDir: DirectoryProperty? = null
-    var version: String? = null
-    var pluginClass: String? = null
-    var debugPort: Int? = null
-
     val manifest: OmegatManifest = OmegatManifest(project)
 
-    var omegatGroup: String? = null
-    var omegatProduct: String? = null
+    private val objectFactory: ObjectFactory = project.objects
+    val version: Property<String> = objectFactory.property(String::class.java)
+    val pluginClass: Property<String> = objectFactory.property(String::class.java)
+    val debugPort: Property<Int> = objectFactory.property(Int::class.java)
+    val omegatGroup: Property<String> = objectFactory.property(String::class.java)
+    val omegatProduct: Property<String> = objectFactory.property(String::class.java)
 
   /**
    * When packing the dependencies of the `packIntoJar` configuration into the distribution *.jar,
