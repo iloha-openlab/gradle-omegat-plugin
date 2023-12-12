@@ -3,11 +3,16 @@ package org.omegat.gradle.task
 import org.gradle.api.Project
 import org.gradle.api.file.DuplicatesStrategy
 import org.gradle.jvm.tasks.Jar
+import org.omegat.gradle.OmegatPlugin
 import org.omegat.gradle.config.DefaultModule
 import org.omegat.gradle.config.PluginExtension
+import java.util.Properties
 
 
 fun Project.setupOmegatTasks(extension: PluginExtension) {
+    val props = Properties()
+    props.load(OmegatPlugin::class.java.getResourceAsStream("omegat.properties"))
+    extension.version.convention(props.getProperty("omegatVersion").toString())
     if (extension.pluginClass.isPresent) {
         tasks.register("runOmegaT", RunTask::class.java)
         tasks.register("debugOmegaT", DebugTask::class.java) {
