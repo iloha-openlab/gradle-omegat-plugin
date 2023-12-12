@@ -1,5 +1,6 @@
 package org.omegat.gradle.task
 
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
 open class StatsTask : BaseTask()  {
@@ -13,8 +14,8 @@ open class StatsTask : BaseTask()  {
             if (!"true".equals(team, true)) {
                 add("--no-team")
             }
-            add("--config-dir=${configDir?:project.layout.buildDirectory.file("omegat").get()}")
-            add(projectDir?:project.rootDir.path)
+            add("--config-dir=${configDir}")
+            add(projectDir?:rootDir)
         }
         super.exec()
     }

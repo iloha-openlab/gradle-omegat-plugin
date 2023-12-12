@@ -11,11 +11,9 @@ class DefaultModule(project: Project) {
     }
 
     fun getDependencies(extension: PluginExtension): List<String> {
-        extension.omegatGroup.convention("org.omegat")
-        extension.omegatProduct.convention("omegat")
         val props = Properties()
         props.load(OmegatPlugin::class.java.getResourceAsStream("omegat.properties"))
         val vldockingVersion = props.getProperty("vldockingVersion").toString()
-        return listOf("${extension.omegatGroup}:${extension.omegatProduct}:${extension.version}", "org.omegat:vldocking:${vldockingVersion}")
+        return listOf("${extension.omegatGroup.get()}:${extension.omegatProduct.get()}:${extension.version.get()}", "org.omegat:vldocking:${vldockingVersion}")
     }
 }

@@ -6,7 +6,6 @@ import org.gradle.api.tasks.options.Option
 import java.io.File
 
 open class TranslateTask : BaseTask() {
-
     @TaskAction
     override fun exec() {
         argList.apply {
@@ -14,8 +13,8 @@ open class TranslateTask : BaseTask() {
             if (!"true".equals(team, true)) {
                 add("--no-team")
             }
-            add("--config-dir=${configDir?:project.layout.buildDirectory.file("omegat").get()}")
-            add(projectDir?:project.rootDir.path)
+            add("--config-dir=${configDir}")
+            add(projectDir?:rootDir)
         }
         super.exec()
     }
