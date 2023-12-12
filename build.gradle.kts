@@ -3,7 +3,7 @@ import java.util.Properties
 
 plugins {
     signing
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.9.20"
     id("java-gradle-plugin")  // for plugin authoring
     id ("maven-publish")  // for metadata
     id("com.gradle.plugin-publish") version "1.1.0"  // to publish to plugin portal
