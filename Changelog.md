@@ -3,17 +3,18 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 2.0.0-rc0
+## 2.0.0-rc2
 
 ### Removed
 * "no-team" project property
+* "projectDir" omegat extension property
 
 ### Added
 * "configDir" property for tasks to specify user configuration directory for OmegaT
  which is "~/.omegat/" in OmegaT default, and '$buildDir/omegat' with the plugin.
 
 ### Changed
-* OmegaT extension now accepts a "projectDir" as a Property object.
+* Tasks accept a "projectDir" as a Property object.
   You can configure it like "projectDir = layout.projectDirectory.file('omegat')" syntax.
 * Change default dependency OmegaT version to v6.0.0
 * Bump Gradle Wrapper@8.5
