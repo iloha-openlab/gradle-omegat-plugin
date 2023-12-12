@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## 2.0.0-rc0
+
 ### Removed
 * "no-team" project property
 
