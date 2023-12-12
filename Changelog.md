@@ -3,8 +3,6 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## 2.0.0-rc0
-
 ### Removed
 * "no-team" project property
 
@@ -15,6 +13,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 * OmegaT extension now accepts a "projectDir" as a Property object.
   You can configure it like "projectDir = layout.projectDirectory.file('omegat')" syntax.
+* Change default dependency OmegaT version to v6.0.0
 * Bump Gradle Wrapper@8.5
 * Allow build from git export
 * CI with ci.codeberg.org
