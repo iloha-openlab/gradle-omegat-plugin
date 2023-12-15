@@ -11,28 +11,23 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
     extension.omegatGroup.convention("org.omegat")
     extension.omegatProduct.convention("omegat")
     extension.version.convention("6.0.0")
-    if (extension.pluginClass.isPresent) {
-        tasks.register("runOmegaT", RunTask::class.java)
-        tasks.register("debugOmegaT", DebugTask::class.java) {
-            extension.debugPort.convention(8457)
-        }
-    }
+    extension.debugPort.convention(8457)
     tasks.register("translate", TranslateTask::class.java)
-    if (extension.version.get().startsWith("5.8.")
-        || extension.version.get().startsWith("6.")
-    ) {
-        tasks.register("translateStats", StatsTask::class.java)
-    }
 
     afterEvaluate {
+        if (extension.version.get().startsWith("5.8.")
+            || extension.version.get().startsWith("6.")
+        ) {
+            tasks.register("translateStats", StatsTask::class.java)
+        }
         if (extension.pluginClass.isPresent) {
             val jarTask = project.tasks.withType(Jar::class.java).getByName("jar")
-            tasks.withType(RunTask::class.java).getByName("runOmegaT").apply {
-                dependsOn(jarTask)
+            tasks.register("runOmegaT", RunTask::class.java) {
+                it.dependsOn(jarTask)
             }
-            tasks.withType(DebugTask::class.java).getByName("debugOmegaT").apply {
-                debugPort = extension.debugPort.get()
-                dependsOn(jarTask)
+            tasks.register("debugOmegaT", DebugTask::class.java) {
+                it.debugPort = extension.debugPort.get()
+                it.dependsOn(jarTask)
             }
             jarTask.outputs.upToDateWhen { false }
             jarTask.doFirst { task ->
