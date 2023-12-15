@@ -51,10 +51,6 @@ open class PluginExtension(project: Project) {
         pluginClass.set(className)
     }
 
-    fun debugPort(port: Int) {
-        debugPort.set(port)
-    }
-
     fun omegatGroup(value: String) {
         omegatGroup.set(value)
     }

@@ -11,13 +11,11 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
     extension.omegatGroup.convention("org.omegat")
     extension.omegatProduct.convention("omegat")
     extension.version.convention("6.0.0")
-    extension.debugPort.convention(8457)
     tasks.register("translate", TranslateTask::class.java)
 
     afterEvaluate {
         if (extension.version.get().startsWith("5.8.")
-            || extension.version.get().startsWith("6.")
-        ) {
+            || extension.version.get().startsWith("6.") ) {
             tasks.register("translateStats", StatsTask::class.java)
         }
         if (extension.pluginClass.isPresent) {
@@ -26,8 +24,8 @@ fun Project.setupOmegatTasks(extension: PluginExtension) {
                 it.dependsOn(jarTask)
             }
             tasks.register("debugOmegaT", DebugTask::class.java) {
-                it.debugPort = extension.debugPort.get()
                 it.dependsOn(jarTask)
+                it.debugPort.convention(8457)
             }
             jarTask.outputs.upToDateWhen { false }
             jarTask.doFirst { task ->
