@@ -4,6 +4,7 @@ import groovy.lang.Closure
 import org.gradle.api.Project
 import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.Property
+import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.util.PatternFilterable
 
 
@@ -36,5 +37,33 @@ open class PluginExtension(project: Project) {
      */
     fun packIntoJarFileFilter(closure: Closure<PatternFilterable>) {
         packIntoJarFileFilter = { closure.call(it) }
+    }
+
+    fun version(value: String) {
+        version.set(value)
+    }
+
+    fun pluginClass(className: String) {
+        pluginClass.set(className)
+    }
+
+    fun pluginClass(className: Provider<String>) {
+        pluginClass.set(className)
+    }
+
+    fun debugPort(port: Int) {
+        debugPort.set(port)
+    }
+
+    fun omegatGroup(value: String) {
+        omegatGroup.set(value)
+    }
+
+    fun omegatProduct(value: String) {
+        omegatProduct.set(value)
+    }
+
+    fun omegatVersion(value: String) {
+        version.set(value)
     }
 }
