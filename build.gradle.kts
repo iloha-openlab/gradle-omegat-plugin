@@ -6,7 +6,7 @@ plugins {
     kotlin("jvm") version "1.9.20"
     id("java-gradle-plugin")  // for plugin authoring
     id ("maven-publish")  // for metadata
-    id("com.gradle.plugin-publish") version "1.1.0"  // to publish to plugin portal
+    id("com.gradle.plugin-publish") version "1.2.1"  // to publish to plugin portal
     id("com.palantir.git-version") version "0.13.0" apply false
 }
 
