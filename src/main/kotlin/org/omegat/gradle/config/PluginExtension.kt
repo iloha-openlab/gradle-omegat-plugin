@@ -14,7 +14,6 @@ open class PluginExtension(project: Project) {
     private val objectFactory: ObjectFactory = project.objects
     val version: Property<String> = objectFactory.property(String::class.java)
     val pluginClass: Property<String> = objectFactory.property(String::class.java)
-    val debugPort: Property<Int> = objectFactory.property(Int::class.java)
     val omegatGroup: Property<String> = objectFactory.property(String::class.java)
     val omegatProduct: Property<String> = objectFactory.property(String::class.java)
 
