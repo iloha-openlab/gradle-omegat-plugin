@@ -15,6 +15,7 @@ open class BaseTask : JavaExec() {
     var configDir: String
 
     @Option(option = "projectDir", description = "Project root directory")
+    @Optional
     @Input
     var projectDir: String? = null
 
