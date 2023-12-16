@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 ## 2.0.0-rc2
 
 ### Removed
+* omegat.debugPort configuration
 * "no-team" project property
 * "projectDir" omegat extension property
 
@@ -14,8 +15,11 @@ All notable changes to this project will be documented in this file.
  which is "~/.omegat/" in OmegaT default, and '$buildDir/omegat' with the plugin.
 
 ### Changed
-* Tasks accept a "projectDir" as a Property object.
-  You can configure it like "projectDir = layout.projectDirectory.file('omegat')" syntax.
+* Bump gradle plugin kotlin@2.0.0-Beta2
+* Bump gradle plugin git-version@3.0.0
+* Change configuration syntax instead of "version='5.8.0'"
+  * "version("5.8.0") " in kotlin dsl
+  * "version "5.8.0" in groovy dsl
 * Change default dependency OmegaT version to v6.0.0
 * Bump Gradle Wrapper@8.5
 * Allow build from git export
