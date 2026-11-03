@@ -15,7 +15,7 @@ jobs:
       name: gradle build
       with:
         arguments: build
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v7
       with:
         name: Package
         path: build/libs
