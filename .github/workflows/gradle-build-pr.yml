@@ -11,7 +11,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '8'
-    - uses: gradle/gradle-build-action@v2
+    - uses: gradle/gradle-build-action@v3
       name: gradle build
       with:
         arguments: build
