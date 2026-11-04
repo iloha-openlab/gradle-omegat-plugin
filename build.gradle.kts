@@ -3,10 +3,10 @@ import java.util.Properties
 
 plugins {
     signing
-    kotlin("jvm") version "2.0.0-Beta2"
+    kotlin("jvm") version "2.4.21"
     id("java-gradle-plugin")  // for plugin authoring
     id ("maven-publish")  // for metadata
-    id("com.gradle.plugin-publish") version "1.2.1"  // to publish to plugin portal
+    id("com.gradle.plugin-publish") version "2.2.1"  // to publish to plugin portal
     id("com.palantir.git-version") version "3.0.0" apply false
 }
 
